@@ -2,15 +2,12 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import * as firebase from 'firebase/app'
-import firebaseConfig from './config/environment'
+import "./firebase/firebase";
+
 Vue.config.productionTip = false
 
 new Vue({
   router,
   store,
-  render: h => h(App),
-  created() {
-    firebase.initializeApp(firebaseConfig);
-  }
+  render: h => h(App)
 }).$mount('#app')
