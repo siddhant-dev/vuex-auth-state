@@ -2,7 +2,7 @@ Hi,
 I have learning Web development since 2016 and Infosys Learning Platform Lex has been a huge part of my learning process along with YouTube tutorials, web forums and MDN and trust me the web keeps on evolving all the time and in these last 4 years or so there has been so many new frameworks and we have also seen so many drastic changes in the process how we develop web apps. 
 
 Through this article I hope to improve your knowledge on the current hot JS framework [Vue](https://vuejs.org). 
-In this article we are going to cover 2 core Vue features [Vuex](https://vuex.vuejs.org/) and [Vue Router] (https://router.vuejs.org/). I am assuming that you already have basic knowledge of Vue if not then please visit the [Vue Js Lex Course] (https://lex.infosysapps.com/en/app/toc/lex_29842462217694155000/overview) and start learning its quite easy to learn compared to other frameworks. In this example we will also be using [Firebase Auth] (https://firebase.google.com/docs/auth/where-to-start?authuser=0). If you wish to use your Auth System, then please feel free to do so.
+In this article we are going to cover 2 core Vue features [Vuex](https://vuex.vuejs.org/) and [Vue Router](https://router.vuejs.org/). I am assuming that you already have basic knowledge of Vue if not then please visit the [Vue Js Docs](https://v3.vuejs.org/guide/introduction.html) and start learning its quite easy to learn compared to other frameworks. In this example we will also be using [Firebase Auth](https://firebase.google.com/docs/auth/where-to-start?authuser=0). If you wish to use your Auth System, then please feel free to do so.
 
 ### Why we need State Management?
 
