@@ -1,26 +1,24 @@
-# Vuex-Example
-
 Hi, 
-I have learning Web development since 2016 and Infosys Learning Platform Lex has been a huge part of my learning process along with Youtube tutorials, web forums and MDN and trust me the web keeps on evolving all the time and in these last 4 years or so there has been so many new frameworks and we have also seen so many drastic changes in the process how we develop web apps. 
+I have learning Web development since 2016 and Infosys Learning Platform Lex has been a huge part of my learning process along with YouTube tutorials, web forums and MDN and trust me the web keeps on evolving all the time and in these last 4 years or so there has been so many new frameworks and we have also seen so many drastic changes in the process how we develop web apps. 
 
 Through this article I hope to improve your knowledge on the current hot JS framework [Vue](https://vuejs.org). 
-In this article we are going to cover 2 core Vue features [Vuex](https://vuex.vuejs.org/) and [VueRouter](https://router.vuejs.org/). I am assuming that you already have basic knowledge of Vue if not then please visit the [VueJs Lex Course](https://lex.infosysapps.com/en/app/toc/lex_29842462217694155000/overview) and start learning its quite easy to learn compared to other frameworks. In this example we will also be using [Firebase Auth](https://firebase.google.com/docs/auth/where-to-start?authuser=0). If you wish to use your Auth System then please feel free to do so.
+In this article we are going to cover 2 core Vue features [Vuex](https://vuex.vuejs.org/) and [Vue Router] (https://router.vuejs.org/). I am assuming that you already have basic knowledge of Vue if not then please visit the [Vue Js Lex Course] (https://lex.infosysapps.com/en/app/toc/lex_29842462217694155000/overview) and start learning its quite easy to learn compared to other frameworks. In this example we will also be using [Firebase Auth] (https://firebase.google.com/docs/auth/where-to-start?authuser=0). If you wish to use your Auth System, then please feel free to do so.
 
 ### Why we need State Management?
 
-State Management helps you manage data efficiently. Lets understand with example. You have card which list the details of course that your app offers and since you are the admin you have access to edit the details as well as view button to view full details. For now we have not implemented state management: 
-So the initial cards details are fetched from the API on page load after that you click on view button to see the entire details, for this also we get our details from an API. You will be able to see all this API requests in Network Tab of Chrome/Edge Dev tools.
+State Management helps you manage data efficiently. Let's understand with example. You have card which list the details of course that your app offers and since you are the admin you have access to edit the details as well as view button to view full details. For now, we have not implemented state management: 
+So, the initial cards details are fetched from the API on page load after that you click on view button to see the entire details, for this also we get our details from an API. You will be able to see all this API requests in Network Tab of Chrome/Edge Dev tools.
 
- ![Dev tools](https://developers.google.com/web/tools/chrome-devtools/network/imgs/network.png)
+ ![Dev tools] (https://developers.google.com/web/tools/chrome-devtools/network/imgs/network.png)
 
-Now if you hit back button you will see that initial card details which was already fetched during first app load is again being fetched. Thus, leading to slight wait time for end user and multiple API calls which is not ideal when you have a huge library of date being fetched from back end. For smaller applications you may not see an enormous impact on your app but as your app grows this same data might be shared across various components and loading the same data repeatedly with same API being repeated is not ideal and may lead to bad User Experience. 
+Now if you hit back button, you will see that initial card details which was already fetched during first app load is again being fetched. Thus, leading to slight wait time for end user and multiple API calls which is not ideal when you have a huge library of date being fetched from back end. For smaller applications you may not see an enormous impact on your app but as your app grows this same data might be shared across various components and loading the same data repeatedly with same API being repeated is not ideal and may lead to bad User Experience. 
 
 This is where state management comes into picture. 
 
 ### What is State Management? 
 
-State Management offers a centralized store of data pool for all of your components in an app, with certain rules that ensure that state of any data is updated in predictable fashion. 
-State Management is cycle where every actions leads to updating of data in store which in turn triggers/updates the View and through the button/input actions on the view the actions are triggered again. 
+State Management offers a centralized store of data pool for all your components in an app, with certain rules that ensure that state of any data is updated in predictable fashion. 
+State Management is cycle where every action leads to updating of data in store which in turn triggers/updates the View and through the button/input actions on the view the actions are triggered again. 
 
 ![Cycle](https://redux.js.org/assets/images/one-way-data-flow-04fe46332c1ccb3497ecb04b94e55b97.png)
 
@@ -33,9 +31,9 @@ In simple terms there are 3 properties of state management:
 ### What is Vuex? 
 
 [Vuex](https://vuex.vuejs.org/) is State Management and Pattern Library created by beautiful minds at [Vue](https://vuejs.org/v2/guide/team.html). 
-It can be used outside of vuejs apps as well but is mostly used in Vue apps. Its quite similar to Redux but easy to learn and understand, and it acts as centralized store for all your components. I'll not be going into deep dive of Vuex core components but you can always find it in [Vuex docs](https://vuex.vuejs.org/guide/state.html#single-state-tree)
+It can be used outside of vuejs apps as well but is mostly used in Vue apps. It's quite like Redux but easy to learn and understand, and it acts as centralized stores for all your components. I'll not be going into deep dive of Vuex core components, but you can always find it in [Vuex docs] (https://vuex.vuejs.org/guide/state.html#single-state-tree)
 
-The core concept of Vuex are : 
+The core concept of Vuex are: 
 
 * State: This is single object that contains all your app level states and acts a *sole source of truth*. You can split your states in different modules as well to better manage the data. 
 
@@ -54,7 +52,6 @@ The core concept of Vuex are :
 Install Vue
 ``` 
 npm install -g @vue/cli
-
 ```
 To create a Vue App: 
 
@@ -69,7 +66,7 @@ More details you visit [Vue Cli](https://cli.vuejs.org/)
 
 ### Create Firebase Project
 
-To create a firebase project, you need to head to [Firebase Console](https://console.firebase.google.com/). Login with google account. 
+To create a firebase project, you need to head to [Firebase Console] (https://console.firebase.google.com/). Login with google account. 
 
 Steps to setup Project:
 
@@ -91,7 +88,7 @@ Now open the Vue app in VSCode or any editor of your choice.
 In src folder create a new Folder named as firebase. 
 Inside that folder create config.js file and paste the config that we copied from Firebase console
 
-```
+```js
 export default {
     firebaseConfig : {
         apiKey: <Your-Key>,
@@ -112,7 +109,7 @@ Next up we need to install Firebase as an dependency in our project using the fo
 
 Once installed create firebaseInit.js inside the firebase folder and write the following code: 
 
-```
+```js
 import firebase from 'firebase'; 
 import env from './config'
 
@@ -123,7 +120,7 @@ export default firebase.
 
 Now head over to main.js file your directory and add the following code : 
 
-```
+```js
 import "./firebaseInit/firebase"
 ```
 Thus far we have successfully installed and configured Firebase for our app. 
@@ -138,19 +135,19 @@ Now this store file will have 4 properties:
 * Actions
 * Getters
 
-so our initial code will look something like this: 
+so, our initial code will look something like this: 
 
-```
+```js
 export default {
     state: {},
     mutations: {},
     actions: {},
-    getters:{}
+    getters: {}
 };
 ```
-Now the State will contain all the data that you need. So for case of authentication, we need just two objects 
+Now the State will contain all the data that you need. So, for case of authentication, we need just two objects 
 
-1. user : This will hold the user data such as name, email, photoURL, etc. 
+1. user: This will hold the user data such as name, email, photoURL, etc. 
 2. isAuth: This is boolean value and will be used to check if user is logged in or not. 
 
 Mutations will define the functions which updates our state values, you define how you want to update your state. In our case we will have two mutation functions 
@@ -170,7 +167,7 @@ Getters will help us get the current state throughout the app in any component w
 
 So going back to state we will be defining our states : 
 
-```
+```js
 state: {
         user: null,
         isAuth: false
@@ -178,9 +175,9 @@ state: {
 ```
 As you can we have defined initial values for our states. 
 
-Mutations property will have two functions as we will be updating two states separately. Each function will have two arguments one is the state object itself and other will the payload which contains the value that has to updated in states.
+Mutation's property will have two functions as we will be updating two states separately. Each function will have two arguments one is the state object itself and other will the payload which contains the value that has to updated in states.
 
-```
+```js
 setUser(state, payload) {
     state.user = payload;
 },
@@ -190,7 +187,7 @@ authenticated(state, payload) {
 ```
 Actions define the triggers that lead to mutation of our states so in we will create two functions as follows : 
 
-```
+```js
 async googleSignIn({ commit }) {
     const response = await firebase.auth().
     signInWithPopup(new firebase.auth.GoogleAuthProvider());
@@ -214,13 +211,13 @@ async signOut({ commit }) {
 Action handlers receive a context object which exposes the same set of methods on the store instance. We often use ES2015 argument destructing to make things more simple as we need to call `commit` multiple times. Commit lets us trigger mutations and update our states. 
 
 Now coming to `firebase.auth()` this is method provided by firebase for login. In this case we are using `signInwithPopup(new firebase.auth.GoogleAuthProvider())` this method opens a popup and the arguments is our sign in provider Google as we have enabled that while setting up firebase project. There are lot more options for sign in which you can find in [Firebase Docs](https://firebase.google.com/docs/web/setup?authuser=0). 
-This SignOut method is quite simple and `currentUser` returns boolean value so if logged in then true else false. 
+This SignOut method is quite simple and `currentUser` returns Boolean value so if logged in then true else false. 
 
-As you can see it's a promise, so we are ES2015 async & await for response. You can put this in try catch block for error handling as well. Once we get response we are calling the commit method to trigger mutation and updating our states. 
+As you can see it's a promise, so we are ES2015 async & wait for response. You can put this in try catch block for error handling as well. Once we get response, we are calling the commit method to trigger mutation and updating our states. 
 
 Getters are defined to get the current state throughout our app, and we have defined two getters for our two states 
 
-```
+```js
 getUser(state){
     console.log(state.user);
     return state.user;
@@ -229,11 +226,11 @@ isAuthenticated(state) {
     return state.isAuth;
 }
 ```
-Now to call actions in any component of our app we need to use dispatch method offered by store in the component. We will seeing that later. 
+Now to call actions in any component of our app we need to use dispatch method offered by store in the component. We will be seeing that later. 
 
-Thus we have created a separate module for our AuthStates and code will look something like this. 
+Thus, we have created a separate module for our AuthStates and code will look something like this. 
 
-```
+```js
 import firebase from "firebase/app";
 import "firebase/auth";
 
@@ -285,7 +282,7 @@ export default {
 
 But still our authStore is not registered. To do that we will open the index.js inside store folder and update it as below: 
 
-```
+```js
 import Vue from "vue";
 import Vuex from "vuex";
 import authStore from "./authStore";
@@ -304,7 +301,7 @@ And thats it we have successfully created an authStore for login.
 Firstly, we need to create a Login.vue file inside our components folder. 
 It's typical vue component file with just template and script. I'm have not defined any styles for this but feel free to add in your project as needed. 
 
-```
+```html
 <template>
     <div class="container">
         <button v-if="!isLoggedIn" @click.prevent="login()">Google Sign In</button>
@@ -352,7 +349,7 @@ We will be using Home.vue fie which was created with our app at the beginning.
 Coming to script of our Home component we have similar setup to that of Login component.
 As usual methods property dispatches the signOut action, computed: property get the loggedIn user details and in watch we are checking isLoggedIn value and soon as its value changes to null we are redirecting our user to login page. 
 
-```
+```html
 <template>
     <div class="home">
         <img src="../assets/logo.png" alt="vue-logo">
@@ -392,7 +389,7 @@ export default {
 
 Routing is pretty simple for now we have three components and we have defined routes for all three components. 
 
-```
+```js
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
@@ -454,7 +451,7 @@ We need to make sure that next function is called at least once in our guards. W
 
 First create a file named authGuard.js inside the router folder and the code for it will be: 
 
-```
+```js
 import store from "../store";
 
 export default (to, from , next) => {
@@ -475,7 +472,7 @@ We are importing the store module here and using the `getters.isAuthenticated` t
 
 Similarly, we will be creating appGuard.js to make sure logged in user can't access the Login component. 
 
-```
+```js
 import store from "../store";
 
 export default (to, from , next) => {
@@ -493,7 +490,7 @@ export default (to, from , next) => {
 ```
 Now we need to include this in our router script. We just need to add the few line of code and our final index.js file for router will look like this: 
 
-```
+```js
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
@@ -541,6 +538,7 @@ export default router
 And that it we have implemented Route guards and Store as well. 
 I hope you enjoyed this article, please do let me know in the comments section your thoughts on this. 
 
-You can find the entire repo in [Infy Github](https://github.com/siddhant-dev/vuex-auth-state). 
+You can find the entire repo in Github
+{% github siddhant-dev/vuex-auth-state %}
 
 Happy Codding 👓
